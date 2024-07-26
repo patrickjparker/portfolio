@@ -1,5 +1,5 @@
 <template>
   <div>
-      Testing Ground
+      <n-button>Click me</n-button>
   </div>
 </template>

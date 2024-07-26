@@ -10,7 +10,13 @@
                     <n-button class="mr-2 mb-1 w-16" tertiary tag="a" :href="props.codeLink">
                         Code
                     </n-button>
-                    <n-button class="w-16" type="info" tag="a" v-if="props.demoLink" :href="props.demoLink">
+                    <n-button
+                        class="w-16"
+                        type="info"
+                        tag="a"
+                        v-if="props.demoLink"
+                        :href="props.demoLink"
+                    >
                         Demo
                     </n-button>
                 </div>
@@ -21,13 +27,15 @@
                     {{ tech }}
                 </n-tag>
             </p>
-            <div class="block md:hidden mt-3">
-                <n-button class="mr-2" tertiary tag="a" :href="props.codeLink">
-                    Code
-                </n-button>
-                <n-button type="info" tag="a" v-if="props.demoLink" :href="props.demoLink">
-                    Demo
-                </n-button>
+            <div>
+                <div class="block md:hidden mt-3">
+                    <n-button class="mr-2" tertiary tag="a" :href="props.codeLink">
+                        Code
+                    </n-button>
+                    <n-button type="info" tag="a" v-if="props.demoLink" :href="props.demoLink">
+                        Demo
+                    </n-button>
+                </div>
             </div>
         </div>
     </div>

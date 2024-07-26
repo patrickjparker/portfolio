@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Hello to all</p>
+    <Header />
     <div class="flex flex-col justify-center items-center">
       <ProjectCard
         v-for="project in projects"

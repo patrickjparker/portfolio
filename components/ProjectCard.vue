@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col sm:flex-row items-center sm:items-stretch m-4 p-4 w-4/5 sm:w-2/3 max-w-2xl rounded-lg border border-gray-700 bg-white drop-shadow-md min-h-52">
-        <div class="pr-4 flex items-center w-80">
+        <div class="px-4 md:pl-0 flex items-center w-80">
             <img :src="props.screenshot" class="w-full h-auto" alt="Screenshot of Project">
         </div>
         <div class="flex flex-col justify-between items-center md:items-baseline w-full">

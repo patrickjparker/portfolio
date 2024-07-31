@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <RainDropHeader />
     <div class="flex flex-col justify-center items-center">
       <ProjectCard
         v-for="project in projects"

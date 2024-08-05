@@ -6,6 +6,19 @@
 import Ripple from './Ripple.vue';
 import { createApp, ref } from 'vue';
 
+onMounted(() => {
+    setMax();
+    window.addEventListener('resize', debouncedSetMax);
+
+    header.value.addEventListener('mousemove', mouseoverHandler);
+
+    setRippleLoop();
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', debouncedSetMax);
+});
+
 // This is the area where the ripples will be created
 const header = ref(null);
 let maxHeight = 0;
@@ -16,23 +29,31 @@ function setMax() {
 }
 
 let resizeTimer;
-const debouncedSetMax = () => {
+function debouncedSetMax() {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
         setMax();
     }, 250);
 }
 
-onMounted(() => {
-    setMax();
-    window.addEventListener('resize', debouncedSetMax);
-
-    setRippleLoop();
-});
-
-onUnmounted(() => {
-    window.removeEventListener('resize', debouncedSetMax);
-});
+let ready = true;
+function mouseoverHandler(e) {
+    if (ready) {
+        ready = false;
+        const isHeaderTarget = e.target === header.value;
+        if (isHeaderTarget) {
+            createRipples(e.offsetX, e.offsetY);
+        } else {
+            const rect = header.value.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            createRipples(x, y);
+        }
+        setTimeout(() => {
+            ready = true;
+        }, 200);
+    }
+}
 
 function setRippleLoop() {
     const ave_interval = 1000;

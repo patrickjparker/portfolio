@@ -1,11 +1,29 @@
 <template>
-    <div class="waves">
+    <div class="waves" :style="dimensions">
         <div></div>
         <div></div>
         <div></div>
         <div @animationend="$emit('done')"></div>
     </div>
 </template>
+
+<script setup>
+const props = defineProps({
+    size: {
+        type: Number,
+        required: true
+    }
+});
+
+const dimensions = computed(() => {
+    const ratio = 1.5;
+    const { size } = props;
+    return {
+        width: `${size * ratio}px`,
+        height: `${size}px`
+    };
+});
+</script>
 
 <style scoped>
 
@@ -16,8 +34,6 @@ div {
 
 .waves {
     position: absolute;
-    width: 200px;
-    height: 100px;
     transform: translate(-50%, -50%);
 }
 
@@ -45,7 +61,7 @@ div {
 }
 
 .waves > div:nth-child(4){
-    animation-delay: calc(var(--delay) + 0.9s);
+    animation-delay: calc(var(--delay) + 0.6s);
 }
 
 @keyframes spread{

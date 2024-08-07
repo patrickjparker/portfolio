@@ -1,5 +1,7 @@
 <template>
-    <div class="header" ref="header"></div>
+    <div class="header" ref="header">
+        <slot></slot>
+    </div>
 </template>
 
 <script setup>
@@ -103,9 +105,7 @@ function createRipples(x, y, size) {
 .header {
     width: 100%;
     height: 100%;
-    min-height: 400px;
-    max-height: 500px;
-    background-color: #117CAA;
+    background-color: #1679AE;
     position: relative;
     overflow: hidden;
 }

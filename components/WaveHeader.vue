@@ -71,6 +71,10 @@ function setRippleLoop() {
     }
 
     setInterval(() => {
+        const animationState = getComputedStyle(document.body).getPropertyValue('animation-play-state');
+        if (animationState === 'paused') {
+            return;
+        }
         setTimeout(() => {
             const { x, y } = getCoords();
             createRipples(x, y, getSize());

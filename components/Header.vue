@@ -2,8 +2,9 @@
     <div>
         <div class="flex justify-between items-center p-4 bg-gray-800 text-white">
             <div>
-            <h1 class="text-2xl font-bold">My Portfolio</h1>
+                <h1 class="text-2xl font-bold">My Portfolio</h1>
             </div>
+            <Links />
         </div>
         <WaveHeader>
             <div class="py-12 flex relative justify-center items-center flex-col md:flex-row h-full z-10">

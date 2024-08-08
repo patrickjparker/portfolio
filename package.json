@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "predeploy": "nuxt generate",
-    "deploy": "gh-pages -d .output/public"
+    "deploy": "gh-pages --nojekyll --cname patrickjparker.dev -d .output/public"
   },
   "dependencies": {
     "nuxt": "^3.12.3",
